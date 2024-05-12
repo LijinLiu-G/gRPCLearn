@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+import "date.proto";
+
+package my.project;    
+
+option csharp_namespace = "My.WebAPIS";
+
+/*afdsfdfsd
+fgdsagsdgf
+sdfsdfa*/
+
+message Person {
+    int32 id =1;
+    string name = 2;
+    float height = 3;
+    float weight = 4;
+    bytes avatar = 5;
+    string email = 6;
+    bool email_verified = 7;
+    repeated string phone_numbers = 8;          //packed编码
+    Gender gender = 11;
+    Date birthday = 12;
+    // string foo =10;
+
+    reserved 9,10,20 to 100,200 to max;
+    reserved "foo","bar";
+
+    message Address{
+        string prvince = 1;
+        string city = 2;
+        string zip_code = 3;
+        string street = 4;
+        string number = 5;
+    }
+    
+}
+
+enum Gender{
+    option allow_alias = true;
+
+    NOT_SPECIFIED = 0;
+    FEMALE  = 1;
+    MALE = 2;
+
+    WOMAN = 1;
+    MAN = 2;
+
+    reserved 9,10,20 to 100,200 to max;
+    reserved "BOY","GIRL";
+}
+
